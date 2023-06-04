@@ -7,7 +7,9 @@
     "start": "tsnd -r tsconfig-paths/register src/index.ts",
     "build": "tsc && tsc-alias",
     "preview": "npm run build && node dist/index.js",
-    "test": "jest"
+    "test": "jest",
+    "db:seed": "tsnd -r tsconfig-paths/register src/database/seed/index.ts",
+    "db:playground": "tsnd -r tsconfig-paths/register src/database/playground/index.ts"
   },
   "author": "",
   "license": "ISC",

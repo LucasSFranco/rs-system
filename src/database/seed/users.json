@@ -1,0 +1,20 @@
+[
+  {
+    "id": "6f189dca-3fc6-40ab-9b28-4cfabf86c840",
+    "firstName": "Claude",
+    "lastName": "Goyette",
+    "email": "claude.goyette@gmail.com"
+  },
+  {
+    "id": "194bed2b-bde1-4086-bf56-d2d4ce7a8238",
+    "firstName": "Michael",
+    "lastName": "Cremin",
+    "email": "michael.cremin@gmail.com"
+  },
+  {
+    "id": "09ed565f-8aa9-42ce-b9b2-7284fd51e9e8",
+    "firstName": "Carleton",
+    "lastName": "Howe",
+    "email": "carleton.howe@gmail.com"
+  }
+]
