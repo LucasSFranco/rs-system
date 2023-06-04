@@ -1,6 +1,7 @@
 import { app } from '@/app'
+import * as env from '@/configs/env'
 
 app.listen(
-  process.env.PORT,
-  () => console.log(`Listening on port ${process.env.PORT}`)
+  env.PORT,
+  () => { console.log(`Listening on port ${env.PORT}`) }
 )
