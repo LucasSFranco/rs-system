@@ -20,11 +20,4 @@ const seed = async () => {
   await Promise.all(expenses.map((data) => prisma.expense.create({ data })))
 }
 
-seed()
-  .then(async () => {
-    await prisma.$disconnect()
-  })
-  .catch(async (error) => {
-    console.error(error)
-    await prisma.$disconnect()
-  })
+export { seed }

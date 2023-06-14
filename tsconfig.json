@@ -9,9 +9,15 @@
     "outDir": "./dist",
     "resolveJsonModule": true,
     "baseUrl": ".",
+    "types": [
+      "@types/jest"
+    ],
     "paths": {
       "@/*": [
         "./src/*"
+      ],
+      "#/*": [
+        "./tests/*"
       ]
     }
   }
