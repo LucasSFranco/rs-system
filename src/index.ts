@@ -3,5 +3,5 @@ import * as env from '@/configs/env'
 
 app.listen(
   env.PORT,
-  () => { console.log(`Listening on port ${env.PORT}`) }
+  () => { console.log(`Listening on http://localhost:${env.PORT}`) }
 )

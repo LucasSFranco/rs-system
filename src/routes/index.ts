@@ -1,7 +1,5 @@
-import Router, { Request, Response } from 'express'
+import { authRouter } from '@/routes/AuthRouter'
 
-const router = Router()
-
-router.get('/', (req: Request, res: Response) => res.send('Hello World!'))
-
-export { router }
+export class Router {
+  static auth = authRouter.routes()
+}
