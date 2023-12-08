@@ -10,7 +10,7 @@ app.use(express.json())
 
 app.use('/auth', Router.auth)
 // app.use('/editions', Router.edition)
-// app.use('/questions', Router.question)
+app.use('/questions', Router.question)
 app.use('/subjects', Router.subject)
 
 app.use(Middlewares.errorHandler)
