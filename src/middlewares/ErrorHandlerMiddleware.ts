@@ -6,8 +6,10 @@ export class ErrorHandlerMiddleware {
     if (error instanceof ZodError) {
       return res
         .status(400)
-        .json(error)
+        .json(error.issues)
     }
+
+    console.log(error)
 
     return res
       .status(500)
