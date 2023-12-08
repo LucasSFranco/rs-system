@@ -1,11 +1,11 @@
+import { type Request, type Response } from 'express'
 import jwt from 'jsonwebtoken'
 import { Services } from '@/services'
-import { type NextFunction, type Request, type Response } from 'express'
 import * as env from '@/configs/env'
 import { Repositories } from '@/repositories'
 
 export class AuthController {
-  async login (req: Request, res: Response, next: NextFunction) {
+  async login (req: Request, res: Response) {
     const { email, password } = req.body
 
     const user = await Repositories.user
@@ -33,7 +33,7 @@ export class AuthController {
       .json({ token })
   }
 
-  async register (req: Request, res: Response, next: NextFunction) {
+  async register (req: Request, res: Response) {
     const rawData = req.body
 
     const createdUser = await Services.auth
