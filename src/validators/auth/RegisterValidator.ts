@@ -27,10 +27,10 @@ const checkPasswordStrength = (password: string) => {
 
 export class RegisterValidator {
   schema = z.object({
-    name: z.string()
-      .trim()
-      .min(1, { message: 'Required' })
-      .max(80, { message: 'Must be at most 80 characters long' }),
+    // name: z.string()
+    //   .trim()
+    //   .min(1, { message: 'Required' })
+    //   .max(80, { message: 'Must be at most 80 characters long' }),
     email: z.string()
       .email()
       .max(255, { message: 'Must be at most 255 characters long' }),

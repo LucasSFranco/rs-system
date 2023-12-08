@@ -11,7 +11,6 @@ const getEnv = (name: string) => {
 }
 
 const PORT = getEnv('PORT')
-// const JWT_SECRET = getEnv('JWT_SECRET')
+const JWT_SECRET = getEnv('JWT_SECRET')
 
-// export { PORT, JWT_SECRET }
-export { PORT }
+export { PORT, JWT_SECRET }

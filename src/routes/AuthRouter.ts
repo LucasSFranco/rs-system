@@ -9,6 +9,7 @@ export class AuthRouter {
   }
 
   routes () {
+    this.router.post('/login', Controllers.auth.login)
     this.router.post('/register', Controllers.auth.register)
 
     return this.router
