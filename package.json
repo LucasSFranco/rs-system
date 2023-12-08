@@ -7,9 +7,7 @@
     "start": "tsnd -r tsconfig-paths/register src/index.ts",
     "build": "tsc && tsc-alias",
     "preview": "npm run build && node dist/index.js",
-    "test": "jest",
-    "db:seed": "tsnd -r tsconfig-paths/register src/database/seed/execute.ts",
-    "db:playground": "tsnd -r tsconfig-paths/register src/database/playground/execute.ts"
+    "test": "jest"
   },
   "author": "",
   "license": "ISC",
@@ -18,6 +16,7 @@
     "bcryptjs": "^2.4.3",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
+    "express-async-errors": "^3.1.1",
     "jsonwebtoken": "^9.0.2",
     "socket.io": "^4.7.2",
     "zod": "^3.21.4"
@@ -35,7 +34,7 @@
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-n": "^15.7.0",
     "eslint-plugin-promise": "^6.1.1",
-    "jest": "^29.5.0",
+    "jest": "^29.7.0",
     "prisma": "^4.15.0",
     "supertest": "^6.3.3",
     "ts-jest": "^29.1.0",
