@@ -11,11 +11,76 @@ datasource db {
 }
 
 model User {
+  id           String   @id @default(uuid())
+  email        String   @unique
+  passwordHash String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@map("users")
+}
+
+model Subject {
   id        String   @id @default(uuid())
-  email     String   @unique
-  password  String
+  name      String   @unique
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  @@map("users")
+  questions   Question[]
+  testConfigs TestConfig[]
+
+  @@map("subjects")
+}
+
+model Question {
+  id        String   @id @default(uuid())
+  statement String
+  subjectId String
+  subject   Subject  @relation(fields: [subjectId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  alternatives Alternative[]
+
+  @@unique([statement, subjectId])
+  @@map("questions")
+}
+
+model Alternative {
+  id         String   @id @default(uuid())
+  statement  String
+  questionId String
+  question   Question @relation(fields: [questionId], references: [id])
+  isCorrect  Boolean
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@unique([statement, questionId])
+  @@map("alternatives")
+}
+
+model Edition {
+  id        String   @id @default(uuid())
+  name      String   @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  testConfigs TestConfig[]
+
+  @@map("editions")
+}
+
+model TestConfig {
+  id              String   @id @default(uuid())
+  subjectId       String
+  subject         Subject  @relation(fields: [subjectId], references: [id])
+  editionId       String
+  edition         Edition  @relation(fields: [editionId], references: [id])
+  questionsAmount Int
+  duration        Int
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@unique([subjectId, editionId])
+  @@map("test_configs")
 }
