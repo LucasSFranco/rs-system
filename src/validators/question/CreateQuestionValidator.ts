@@ -26,7 +26,7 @@ export class CreateQuestionValidator {
   })
 
   async validate (rawData: unknown) {
-    return this.schema.parseAsync(rawData)
+    return await this.schema.parseAsync(rawData)
   }
 }
 

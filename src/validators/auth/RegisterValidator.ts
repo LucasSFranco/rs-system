@@ -5,13 +5,13 @@ export interface PasswordMatchData {
   passwordConfirmation: string
 }
 
-const checkPasswordMatch = (data: PasswordMatchData) => {
+export const checkPasswordMatch = (data: PasswordMatchData) => {
   const { password, passwordConfirmation } = data
 
   return password === passwordConfirmation
 }
 
-const checkPasswordStrength = (password: string) => {
+export const checkPasswordStrength = (password: string) => {
   const UPPER_CASE_LETTERS = /[A-Z]/
   const LOWER_CASE_LETTERS = /[a-z]/
   const NUMBERS = /[0-9]/

@@ -1,5 +1,5 @@
-import bcrypt from "bcryptjs"
-import { prisma } from "@/database"
+import bcrypt from 'bcryptjs'
+import { prisma } from '@/database'
 
 export class UserRepository {
   async findByEmail (email: string) {

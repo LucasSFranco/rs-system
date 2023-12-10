@@ -1,4 +1,5 @@
-import { prisma } from "@/database"
+import { prisma } from '@/database'
+import { type CreateEditionData } from '@/types/edition'
 
 export class EditionRepository {
   async findById (id: string) {
@@ -23,7 +24,7 @@ export class EditionRepository {
     })
   }
 
-  async create (data: { name: string, testConfigs: { subjectId: string, questionsAmount: number, duration: number }[] }) {
+  async create (data: CreateEditionData) {
     return await prisma.edition.create({
       data: {
         name: data.name,

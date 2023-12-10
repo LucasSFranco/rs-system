@@ -1,4 +1,4 @@
-import { Repositories } from "@/repositories"
+import { Repositories } from '@/repositories'
 
 export const checkSubjectUniqueness = async (name: string) => {
   const subject = await Repositories.subject.findByName(name)

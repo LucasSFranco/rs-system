@@ -1,4 +1,5 @@
-import { prisma } from "@/database"
+import { prisma } from '@/database'
+import { type CreateQuestionData } from '@/types/auth'
 
 export class QuestionRepository {
   async findAll () {
@@ -11,7 +12,7 @@ export class QuestionRepository {
     })
   }
 
-  async create (data: { subjectId: string, statement: string, alternatives: { statement: string, isCorrect: boolean }[] }) {
+  async create (data: CreateQuestionData) {
     return await prisma.question.create({
       data: {
         statement: data.statement,

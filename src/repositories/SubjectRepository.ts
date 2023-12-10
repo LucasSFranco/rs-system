@@ -1,4 +1,5 @@
-import { prisma } from "@/database"
+import { prisma } from '@/database'
+import { type CreateSubjectData } from '@/types/subject'
 
 export class SubjectRepository {
   async findAll () {
@@ -11,16 +12,16 @@ export class SubjectRepository {
 
   async findByName (name: string) {
     return await prisma.subject.findFirst({
-      where:{
+      where: {
         name: {
           equals: name,
-          mode: "insensitive",
+          mode: 'insensitive'
         }
       }
     })
   }
 
-  async create (data: { name: string }) {
+  async create (data: CreateSubjectData) {
     return await prisma.subject.create({
       data,
       select: {

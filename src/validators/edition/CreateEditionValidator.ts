@@ -1,14 +1,15 @@
+import { z } from 'zod'
+import { type CreateTestConfigData } from '@/types/edition'
 import { checkSubjectExistence } from '@/validators/Custom/checkSubjectExistence'
 import { checkQuestionsAmountExistence } from '@/validators/Custom/checkQuestionsAmountExistence'
-import { z } from 'zod'
 
-export const checkDurationMinimum = async ({ questionsAmount, duration }: { questionsAmount: number, duration: number }) => {
+export const checkDurationMinimum = async ({ questionsAmount, duration }: CreateTestConfigData) => {
   const minDuration = questionsAmount * 30
 
   return duration >= minDuration
 }
 
-export const checkDurationMaximum = async ({ questionsAmount, duration }: { questionsAmount: number, duration: number }) => {
+export const checkDurationMaximum = async ({ questionsAmount, duration }: CreateTestConfigData) => {
   const maxDuration = questionsAmount * 300
 
   return duration <= maxDuration
@@ -41,7 +42,7 @@ export class CreateEditionValidator {
   })
 
   async validate (rawData: unknown) {
-    return this.schema.parseAsync(rawData)
+    return await this.schema.parseAsync(rawData)
   }
 }
 
